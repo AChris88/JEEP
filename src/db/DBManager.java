@@ -50,7 +50,6 @@ public class DBManager {
 					+ configs.getDBPort() + "/" + configs.getDBName();
 			String user = configs.getDBLogin();
 			String password = configs.getDBPassword();
-			System.out.println(url + "\n" + user + "\n" + password);
 			// Creating a connection to the database using the connetion url,
 			// user name, and password
 			connection = DriverManager.getConnection(url, user, password);

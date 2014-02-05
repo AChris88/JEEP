@@ -62,18 +62,16 @@ public class MailSettingsFrame extends JFrame {
 		
 		add(new JLabel());
 		add(new JLabel("Username:"));
-//		String userNameRegEx ="[a-zA-Z0-9._-]";
-//		final JFormattedTextField uName = new JFormattedTextField(new RegExFormatter(userNameRegEx));
-		final JFormattedTextField uName = new JFormattedTextField();
+		String userNameRegEx ="/^[a-zA-Z0-9_-]{3,16}$/";
+		final JFormattedTextField uName = new JFormattedTextField(new RegExFormatter(userNameRegEx));
 		uName.setText(configs.getUserName());
 		add(uName);
 		add(new JLabel());
 		
 		add(new JLabel());
 		add(new JLabel("User E-mail:"));
-//		String emailRegEx = "^[a-zA-Z][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$";
-//		final JFormattedTextField uEmail = new JFormattedTextField(new RegExFormatter(emailRegEx));
-		final JFormattedTextField uEmail = new JFormattedTextField();
+		String emailRegEx = "^[a-zA-Z][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$";
+		final JFormattedTextField uEmail = new JFormattedTextField(new RegExFormatter(emailRegEx));
 		uEmail.setText(configs.getUserEmail());
 		add(uEmail);
 		add(new JLabel());
@@ -108,11 +106,10 @@ public class MailSettingsFrame extends JFrame {
 		
 		add(new JLabel());
 		add(new JLabel("POP3 Port#:"));
-//		String portRegEx = "^(6553[0-5]|655[0-2]\\d|65[0-4]\\d\\d|6[0-4]\\d{3}|[1-5]\\d{4}|[1-9]\\d{0,3}|0)$";
-//		final JFormattedTextField POP3Port = new JFormattedTextField(createFormatter(portRegEx));
-		final JFormattedTextField POP3Port = new JFormattedTextField();
+		String portRegEx = "^(6553[0-5]|655[0-2]\\d|65[0-4]\\d\\d|6[0-4]\\d{3}|[1-5]\\d{4}|[1-9]\\d{0,3}|0)$";
+		final JFormattedTextField POP3Port = new JFormattedTextField(new RegExFormatter(portRegEx));
 		POP3Port.setText(""+configs.getPortPOP3());
-//		POP3Port.setColumns(2);
+		POP3Port.setColumns(2);
 		add(POP3Port);
 		add(new JLabel());
 		
@@ -120,7 +117,7 @@ public class MailSettingsFrame extends JFrame {
 		add(new JLabel("SMTP Port#:"));
 		final JFormattedTextField SMTPPort = new JFormattedTextField();
 		SMTPPort.setText(""+configs.getPortSMTP());
-//		SMTPPort.setColumns(2);
+		SMTPPort.setColumns(2);
 		add(SMTPPort);
 		add(new JLabel());
 		

@@ -389,8 +389,6 @@ public class ClientFrame extends JFrame implements ActionListener{
 	 */
 	private JButton makeToolBarButton(String imageName,
 			String actionCommand, String toolTipText, String altText) {
-
-		ToolBarEventHandler tbeh = new ToolBarEventHandler();
 		
 		// Look for the image.
 		String imgLocation = "/images/" + imageName+".png";
@@ -400,7 +398,6 @@ public class ClientFrame extends JFrame implements ActionListener{
 		JButton button = new JButton();
 		button.setActionCommand(actionCommand);
 		button.setToolTipText(toolTipText);
-		button.addActionListener(tbeh);
 
 		//sets the button image if it is founds, or else sets alternate text
 		if (imageURL != null) {
@@ -410,25 +407,6 @@ public class ClientFrame extends JFrame implements ActionListener{
 			System.err.println("Resource not found: " + imgLocation);
 		}
 		return button;
-	}
-	
-	//AcitonListener handling button clicks.
-	class ToolBarEventHandler implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			JButton source = (JButton) (e.getSource());
-			String action = source.getActionCommand();
-			switch(action){
-			case "Settings":
-				settingsButtonClick();
-				break;
-			case "Contacts":
-				contactsButtonClick();
-				break;
-			case "New Mail":
-				mailButtonClick();
-				break;
-			}
-		}
 	}
 	
 	/**
@@ -443,12 +421,7 @@ public class ClientFrame extends JFrame implements ActionListener{
 	 * Displays the mail settings frame
 	 */
 	private void settingsButtonClick() {
-		if(settings==null)
-			settings = new MailSettingsFrame(UIManager.getLookAndFeel());
-		else{
-			settings.setLookAndFeel(UIManager.getLookAndFeel());
-			settings.setVisible(true);
-		}
+		settings = new MailSettingsFrame(UIManager.getLookAndFeel());
 	}
 	
 	/**
