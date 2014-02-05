@@ -4,7 +4,6 @@ package ui;
  * Class to launch the e-mail client.
  * 
  * ------------KNOWN ISSUES------------
- * 1. Images link in Help menu are broken.
  * 2. Drag and drop can detect valid drop locations, but update doesn't trigger.
  * 3. Was not able to fix my issue my RegEx's displaying my JFormattedTextFields
  * 	  so I disabled any RegEx/Mask validation to make the app. easier to handle when testing.

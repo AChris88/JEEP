@@ -22,10 +22,10 @@ public class MailProperties {
 	public MailProperties() {
 		super();
 		//SMTP
-//		propFileName = "MailConfig.properties";
+		propFileName = "MailConfig.properties";
 		
 		//Gmail
-		propFileName = "GMailConfig.properties";
+//		propFileName = "GMailConfig.properties";
 		prop = new Properties();
 	}
 

@@ -127,15 +127,11 @@ public class ContactTableModel extends AbstractTableModel{
 	 * @param id value to search for and remove.
 	 */
 	public void deleteContact(String id){
-		int ctr=0;
-		do{
-			if(data.elementAt(ctr).getId().equals(id)){
-				data.removeElementAt(ctr);
-				ctr = data.size()-1;
-			}
-			ctr++;
-		}
-		while(ctr < data.size()-1);
+		for(int i= 0;i < data.size(); i++)
+			if(data.elementAt(i).getId().equals(id)){
+				data.remove(i);
+				break;
+			}		
 		fireTableDataChanged();
 	}
 	

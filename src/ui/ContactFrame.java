@@ -121,9 +121,13 @@ public class ContactFrame extends JFrame{
 		edit.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String newFName = JOptionPane.showInputDialog(null,"New First Name?");
-				String newLName = JOptionPane.showInputDialog(null,"New Last Name?");
-				String newEmail = JOptionPane.showInputDialog(null,"New E-mail?");
+				String tmpFName = JOptionPane.showInputDialog(null,"New First Name?");
+				String tmpLName = JOptionPane.showInputDialog(null,"New Last Name?");
+				String tmpEmail = JOptionPane.showInputDialog(null,"New E-mail?");
+				
+				String newFName = tmpFName == null ? "" : tmpFName;
+				String newLName = tmpLName == null ? "" : tmpLName;
+				String newEmail = tmpEmail == null ? "" : tmpEmail;
 				ContactBean contact = new ContactBean(((ContactTableModel)manager.getContactModel()).getContactBean(selectedRow).getId(),
 										newFName,newLName,newEmail);
 				manager.saveContact(contact);
